@@ -1,0 +1,11 @@
+{
+  "name": "imarticuslms",
+  "version": "1.0.0",
+  "description": "Markdown",
+  "main": "index.js",
+  "scripts": {
+    "dev": ""
+  },
+  "author": "",
+  "license": "ISC"
+}
