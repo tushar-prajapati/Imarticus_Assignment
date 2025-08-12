@@ -23,24 +23,24 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: |
-            server/package-lock.json
+            api/package-lock.json
             client/package-lock.json
 
       # ------------------------------
       # BACKEND SETUP
       # ------------------------------
       - name: Install backend dependencies
-        working-directory: ./server
+        working-directory: ./api
         run: npm install
 
       - name: Create backend .env file
-        working-directory: ./server
+        working-directory: ./api
         run: |
           touch .env
           echo "${{ secrets.PROD_BACKEND_ENV }}" > .env
 
       - name: Start backend with PM2
-        working-directory: ./server
+        working-directory: ./api
         run: |
           pm2 restart backend || pm2 start index.js --name backend
 
